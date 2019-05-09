@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from "@angular/forms";
 import { SearchFormComponent } from "./search-form/search-form.component";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

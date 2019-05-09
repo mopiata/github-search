@@ -11,7 +11,7 @@ export class SearchFormComponent implements OnInit {
   private searchString;
 
   submitSearch(){
-    console.log('Hi');
+    console.log(this.searchString);
     this.formValues.resetForm();
   }
 

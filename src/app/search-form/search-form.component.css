@@ -1,13 +1,12 @@
 .btn-search{
-  width:40%;
   border-radius: 20px;
-  font-size:25px;
 }
-.search{
+.search form{
   text-align: center;
+  float:right;
 }
 .mysearch{
-  margin-bottom: 30px;
+  margin-right: 10px;
   border-radius: 30px;
   border-color: darkgray;
 }
