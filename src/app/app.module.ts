@@ -7,18 +7,22 @@ import { FormsModule } from "@angular/forms";
 import { SearchFormComponent } from "./search-form/search-form.component";
 import { FooterComponent } from './footer/footer.component';
 
+import { HttpClientModule } from "@angular/common/http";
+import { GitsearchServiceService } from "./gitsearch-service.service";
+
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     SearchFormComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GitsearchServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
