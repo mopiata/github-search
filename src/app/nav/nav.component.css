@@ -1,0 +1,7 @@
+.jumbotron{
+  background-color: black;
+  color: white;
+}
+.jumbotron h1{
+  font-weight: bolder;
+}
