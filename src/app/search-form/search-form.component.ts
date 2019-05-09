@@ -8,6 +8,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class SearchFormComponent implements OnInit {
 
   @ViewChild('searchForm') formValues;
+  private searchString;
 
   submitSearch(){
     console.log('Hi');
