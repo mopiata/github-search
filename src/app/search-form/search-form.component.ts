@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-search-form',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnInit {
+
+  @ViewChild('searchForm') formValues;
+
+  submitSearch(){
+    console.log('Hi');
+    this.formValues.resetForm();
+  }
 
   constructor() { }
 
