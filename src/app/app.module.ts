@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { UserAdapter } from "./user";
 import { DateCountPipe } from './date-count.pipe';
 import { MyHighlightDirective } from './my-highlight.directive';
+import { RoutingModule } from "./routing/routing.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MyHighlightDirective } from './my-highlight.directive';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RoutingModule
   ],
   providers: [GitsearchServiceService, UserAdapter],
   bootstrap: [AppComponent]
