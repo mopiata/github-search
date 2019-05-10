@@ -1,9 +1,11 @@
-<div class="container search">
-  <form #searchForm='ngForm' class="myForm form-inline" autocomplete="off" (ngSubmit)="submitSearch()">
-    <input required #search="ngModel" id="search" name="search" [(ngModel)]="searchString"
-      class="form-control form-control-lg mysearch" type="search" placeholder="Search Github" aria-label="Search">
-    <button [disabled]="searchForm.form.invalid" class="btn btn-primary form-control-lg btn-search"
-      type="submit">Search</button>
-  </form>
-  <hr>
+<div class="row">
+  <div class="container search">
+    <form #searchForm='ngForm' class="myForm form-inline" autocomplete="off" (ngSubmit)="submitSearch()">
+      <input required #search="ngModel" id="search" name="search" [(ngModel)]="searchString"
+        class="form-control form-control-lg mysearch" type="search" placeholder="Search Github" aria-label="Search">
+      <button [disabled]="searchForm.form.invalid" class="btn btn-primary form-control-lg btn-search"
+        type="submit">Search</button>
+    </form>
+    <hr>
+  </div>
 </div>

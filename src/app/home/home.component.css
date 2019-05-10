@@ -2,3 +2,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+.repoinfo{
+  background-color: azure;
+  border-radius: 10px;
+}
+.tablerepos{
+  width:100%;
+  border:solid blue 1px;
+}

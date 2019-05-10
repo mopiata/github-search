@@ -8,15 +8,15 @@ export class MyHighlightDirective {
   constructor(private elem:ElementRef) {}
 
   @HostListener("click") onClicks(){
-    this.textDeco("line-through");
+    this.textDeco("yellow");
   }
 
   @HostListener("dblclick") onDoubleClicks(){
-    this.textDeco("None");
+    this.textDeco("transparent");
   }
 
   private textDeco(action: string) {
-    this.elem.nativeElement.style.textDecoration = action;
+    this.elem.nativeElement.style.backgroundColor = action;
   }
 
 }

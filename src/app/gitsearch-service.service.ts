@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from "@angular/common/http";
 // import { Observable } from "rxjs";
-// import { map } from "rxjs/operators";
+import { map, tap, catchError } from "rxjs/operators";
 import { User, UserAdapter } from "./user";
-import { Repo } from "./repo";
+import { Repo, RepoAdapter } from "./repo";
 import { environment } from "../environments/environment";
 import { stringify } from '@angular/core/src/util';
 import { ReplaceSource } from 'webpack-sources';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +18,16 @@ export class GitsearchServiceService {
 
   user:User;
   repos:Repo[];
+  // repo: Repo;
   
   
   constructor(
     private http:HttpClient,
     private adapter: UserAdapter,
+    private repoAdapter: RepoAdapter,
     ) { 
       this.user=new User("","","","",0,new Date(),new Date());
+      // this.repo = new Repo("", "", "", "");
     }
 
   userRequest(searchString){
@@ -59,10 +64,11 @@ export class GitsearchServiceService {
       return promise;
     }
 
-    userRepos(searchString){
+    userRepos1(searchString){
       const url = "https://api.github.com/users/" + searchString +"/repos?access_token=" + environment.accessKey;
       
       interface ApiResponse{
+        
         name: string;
         full_name:string;
         html_url: string;
@@ -70,15 +76,20 @@ export class GitsearchServiceService {
       }
 
       let promise = new Promise((resolve, reject) => {
-        this.http.get<ApiResponse>('https://api.github.com/users/' + searchString + '?access_token=' + environment.accessKey)
-          .toPromise().then(response => {
-            this.repos.forEach((repo)=>{
-              repo.name=response.name;
-              repo.owner=response.full_name;
-              repo.repoUrl=response.html_url;
-              repo.description=response.description;
-            })
 
+        this.http.get<ApiResponse[]>(url)
+          .toPromise()
+          .then(response => {
+
+            this.repos = response.map((res)=>{
+                return new Repo(
+                  res.name,
+                  res.full_name,
+                  res.html_url,
+                  res.description
+              );
+            })
+            return this.repos;
             resolve()
           },
 
@@ -88,8 +99,24 @@ export class GitsearchServiceService {
             }
           )
       })
-
+      return promise;
     }
+
+  userRepos(searchString): Observable<Repo[]> {
+    const url = "https://api.github.com/users/" + searchString + "/repos?access_token=" + environment.accessKey;
+
+    return this.http.get(url)
+      .pipe(
+        map((data:any[])=>data.map(item => this.repoAdapter.adapt(item)))
+      );
+  }
+}
+  // this.repos = response.map((res) => {
+  //   this.repo.name = res.name;
+  //   this.repo.owner = res.full_name;
+  //   this.repo.repoUrl = res.html_url;
+  //   this.repo.description = res.description;
+  // })
 
   // repoRequest(searchString){
   //   // constructor(public name: string, public owner: string, public repoUrl: string,
@@ -108,7 +135,7 @@ export class GitsearchServiceService {
   //   )
 
   // }
-}
+
 
 
 

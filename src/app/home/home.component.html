@@ -1,22 +1,37 @@
-<div class="container main">
-  <div class="row">
-    <div class="col-lg-5 col-sm-12 userinfo">
-      <div class="card">
-        <img class="card-img-top" src="{{ user.profPic }}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{user.username}}</h5>
-          <span class="badge badge-success">Member since {{ user.joinDate | date }}</span>
-          <span class="badge badge-warning">Last updated profile {{ user.lastActiveDate | date }}</span>
-          <br>
-          <br>
-          
-          
-          <a href="{{user.githubProfileUrl}}" class="btn btn-info btn-profile">See Profile</a>
+<div class="row">
+  <div class="container main">
+    <div class="row">
+      <div class="col-lg-5 col-sm-12 userinfo">
+        <div class="card">
+          <img class="card-img-top" src="{{ user.profPic }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" appMyHighlight>{{user.username}}</h5>
+            <span class="badge badge-success">Member since {{ user.joinDate | date }}</span>
+            <span class="badge badge-warning">Last updated profile {{ user.lastActiveDate | date }}</span>
+            <br>
+            <br>
+            
+            
+            <a href="{{user.githubProfileUrl}}" class="btn btn-info btn-profile">See Profile</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-lg-7 col-sm-12 repoinfo">
+      <div class="col-lg-7 col-sm-12 repoinfo">
+        <h2>Repositories</h2>
+        <table class="tablerepos">
+          <tr>
+            <th>Repository</th>
+            <th>Description</th>
+          </tr>
+          <tr *ngFor="let repo of repos">
+            <td>{{repo.name}}</td>
+            <td *ngIf="repo.description">{{repo.description}}</td>
+            <td *ngIf="!repo.description">No Description</td>
+          </tr>
 
+        </table>
+        
+      </div>
     </div>
   </div>
 </div>

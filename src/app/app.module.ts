@@ -11,6 +11,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { GitsearchServiceService } from "./gitsearch-service.service";
 import { HomeComponent } from './home/home.component';
 import { UserAdapter } from "./user";
+import { RepoAdapter } from "./repo";
 import { DateCountPipe } from './date-count.pipe';
 import { MyHighlightDirective } from './my-highlight.directive';
 import { RoutingModule } from "./routing/routing.module";
@@ -31,7 +32,7 @@ import { RoutingModule } from "./routing/routing.module";
     HttpClientModule,
     RoutingModule,
   ],
-  providers: [GitsearchServiceService, UserAdapter],
+  providers: [GitsearchServiceService, UserAdapter, RepoAdapter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

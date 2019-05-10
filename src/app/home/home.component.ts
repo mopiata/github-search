@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from "../user";
 import { Repo } from "../repo";
 import { GitsearchServiceService } from "../gitsearch-service.service";
+import { MyHighlightDirective } from "../my-highlight.directive";
 
 @Component({
   selector: 'app-home',
@@ -10,21 +11,23 @@ import { GitsearchServiceService } from "../gitsearch-service.service";
 })
 export class HomeComponent implements OnInit {
   user: User;
-  repos:Repo[];
+  repos:Repo[]=[];
   myProfile="mopiata";
 
-  constructor(private gitSearch:GitsearchServiceService) {
+  constructor(private gitSearch:GitsearchServiceService) {}
 
-   }
+  getUserRepos(user:string){
+    this.gitSearch.userRepos(user)
+      .subscribe(data => this.repos = data);
+  }
+
+
 
   ngOnInit() {
     this.gitSearch.userRequest(this.myProfile);
     this.user = this.gitSearch.user;
-
-    this.gitSearch.userRepos(this.myProfile);
-    this.repos=this.gitSearch.repos;
-    console.log(this.user);
-    console.log(this.repos);
+    // console.log(this.repos);
+    this.getUserRepos(this.myProfile);
   }
 
 }
