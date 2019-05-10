@@ -9,6 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 
 import { HttpClientModule } from "@angular/common/http";
 import { GitsearchServiceService } from "./gitsearch-service.service";
+import { HomeComponent } from './home/home.component';
+import { UserAdapter } from "./user";
+import { DateCountPipe } from './date-count.pipe';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,15 @@ import { GitsearchServiceService } from "./gitsearch-service.service";
     NavComponent,
     SearchFormComponent,
     FooterComponent,
+    HomeComponent,
+    DateCountPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [GitsearchServiceService],
+  providers: [GitsearchServiceService, UserAdapter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

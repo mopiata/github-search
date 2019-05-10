@@ -11,8 +11,8 @@ import { environment } from "../environments/environment";
   providedIn: 'root'
 })
 export class GitsearchServiceService {
-  private searchString='mopiata';
-  profSearchUrl = 'https://api.github.com/users/' + this.searchString + '?access_token=' + environment.accessKey
+  
+  
   
   constructor(
     private http:HttpClient,
@@ -20,7 +20,7 @@ export class GitsearchServiceService {
     ) { }
 
   userRequest(searchString): Observable<User[]>{
-    const url=this.profSearchUrl;
+    const url = 'https://api.github.com/users/' + searchString + '?access_token=' + environment.accessKey;
   
     return this.http.get(url).pipe(
       // Adapt each item in the raw data array

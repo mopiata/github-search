@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { User } from "../user";
+
+import { GitsearchServiceService } from "../gitsearch-service.service";
 
 @Component({
   selector: 'app-search-form',
@@ -8,16 +11,20 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class SearchFormComponent implements OnInit {
 
   @ViewChild('searchForm') formValues;
-  private searchString;
+  
+  private searchString = 'mopiata';
 
-  submitSearch(){
-    console.log(this.searchString);
-    this.formValues.resetForm();
-  }
+  users:User[];
 
-  constructor() { }
+  constructor(private gitSearch:GitsearchServiceService) { }
 
   ngOnInit() {
+    
   }
 
+  submitSearch() {
+    console.log(this.gitSearch.userRequest(this.searchString));
+    // this.users
+    this.formValues.resetForm();
+  }
 }
