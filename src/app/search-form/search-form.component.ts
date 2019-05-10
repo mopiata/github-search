@@ -13,7 +13,7 @@ export class SearchFormComponent implements OnInit {
 
   @ViewChild('searchForm') formValues;
   
-  private searchString = "";
+  searchString:string = "";
 
   user:User;
   repos:Repo[];
