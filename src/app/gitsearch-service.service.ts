@@ -7,6 +7,7 @@ import { User, UserAdapter } from "./user";
 import { Repo } from "./repo";
 import { environment } from "../environments/environment";
 import { stringify } from '@angular/core/src/util';
+import { ReplaceSource } from 'webpack-sources';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class GitsearchServiceService {
 
   user:User;
   repos:Repo[];
+  
   
   constructor(
     private http:HttpClient,
@@ -55,6 +57,38 @@ export class GitsearchServiceService {
         )
       })
       return promise;
+    }
+
+    userRepos(searchString){
+      const url = "https://api.github.com/users/" + searchString +"/repos?access_token=" + environment.accessKey;
+      
+      interface ApiResponse{
+        name: string;
+        full_name:string;
+        html_url: string;
+        description: string;  
+      }
+
+      let promise = new Promise((resolve, reject) => {
+        this.http.get<ApiResponse>('https://api.github.com/users/' + searchString + '?access_token=' + environment.accessKey)
+          .toPromise().then(response => {
+            this.repos.forEach((repo)=>{
+              repo.name=response.name;
+              repo.owner=response.full_name;
+              repo.repoUrl=response.html_url;
+              repo.description=response.description;
+            })
+
+            resolve()
+          },
+
+            error => {
+              console.log("There's no such user");
+              reject(error)
+            }
+          )
+      })
+
     }
 
   // repoRequest(searchString){
