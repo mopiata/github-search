@@ -1,27 +1,38 @@
-# GithubSearch
+# _Github Search_
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+#### By Margaret Mutungi
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This web application allows a user to search for GitHub users using a person's username or for public repositories in GitHub using their names as well.
 
-## Code scaffolding
+## How it works
+A user enters a username or repository name in the search box. This queries github and returns results for the user to see. They can then select the result to see a few more details. They can also be redirected to the github link that pointing to the user or repository if they choose. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The landing page of the site contains my GitHub information with my username, avatar (profile picture) and a list of repos and their descriptions. This will serve as a template for any other user display. 
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Setup/Installation Requirements
 
-## Running unit tests
+* Follow the link for the live site: https://mopiata.github.io/github-search/
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+OR 
 
-## Running end-to-end tests
+* Clone this repository
+* run npm install while in the project directory.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Technologies Used
 
-## Further help
+* _HTML_
+* _CSS_
+* _Bootstrap_
+* _Angular_
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Contributors
+_Samuel Ngigi (My instructor)_
+
+### License
+
+*This software is licensed under the MIT license.*
+
+Copyright (c) 2019 **_Margaret Mutungi_**
