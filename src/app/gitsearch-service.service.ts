@@ -6,6 +6,7 @@ import { HttpClient } from "@angular/common/http";
 import { User, UserAdapter } from "./user";
 import { Repo } from "./repo";
 import { environment } from "../environments/environment";
+import { stringify } from '@angular/core/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ import { environment } from "../environments/environment";
 export class GitsearchServiceService {
 
   user:User;
+  repos:Repo[];
   
   constructor(
     private http:HttpClient,
@@ -55,6 +57,27 @@ export class GitsearchServiceService {
       return promise;
     }
 
+  // repoRequest(searchString){
+  //   // constructor(public name: string, public owner: string, public repoUrl: string,
+  //   //   public description: string){
+  //   // }
+  //   interface ApiResponse{
+  //     items.name:string;
+  //     items.owner.login:string;
+  //     items.html_url: string;
+  //     items.description: string;  
+  //   }
+
+  //   let promise=new Promise((resolve,reject)=>{
+
+  //   }
+  //   )
+
+  // }
+}
+
+
+
   //-------------------------------------------------------------------------------------------
   // userRequest(searchString): Observable<User[]>{ 
   //   const url = `https://api.github.com/users/${searchString} 
@@ -70,8 +93,3 @@ export class GitsearchServiceService {
   // list(): Observable<any> { 
   //   return this.http.get('https://api.github.com/users/mopiata?access_token=' + environment.accessKey);
   // }
-
-  repoRequest(searchString){
-
-  }
-}
