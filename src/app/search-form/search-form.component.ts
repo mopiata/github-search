@@ -12,9 +12,9 @@ export class SearchFormComponent implements OnInit {
 
   @ViewChild('searchForm') formValues;
   
-  private searchString = 'mopiata';
+  private searchString = "";
 
-  users:User[];
+  user:User;
 
   constructor(private gitSearch:GitsearchServiceService) { }
 
@@ -23,8 +23,12 @@ export class SearchFormComponent implements OnInit {
   }
 
   submitSearch() {
-    console.log(this.gitSearch.userRequest(this.searchString));
-    // this.users
+
+    this.gitSearch.userRequest(this.searchString.trim());
+    this.user=this.gitSearch.user;
+      
+    console.log(this.user);
+
     this.formValues.resetForm();
   }
 }

@@ -29,7 +29,7 @@ import { RoutingModule } from "./routing/routing.module";
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RoutingModule
+    RoutingModule,
   ],
   providers: [GitsearchServiceService, UserAdapter],
   bootstrap: [AppComponent]

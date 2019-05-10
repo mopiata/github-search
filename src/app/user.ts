@@ -16,8 +16,8 @@ export class UserAdapter implements Adapter<User>{
       item.html_url,
       item.repos_url,
       item.public_repos,
-      item.created_at,
-      item.updated_at,
+      new Date(item.created_at),
+      new Date(item.updated_at),
     ); 
   }
 }
