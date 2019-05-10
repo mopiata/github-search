@@ -20,13 +20,13 @@
         <h2>Repositories</h2>
         <table class="tablerepos">
           <tr>
-            <th>Repository</th>
-            <th>Description</th>
+            <th class="t-header">Repository</th>
+            <th class="t-header">Description</th>
           </tr>
           <tr *ngFor="let repo of repos">
-            <td>{{repo.name}}</td>
-            <td *ngIf="repo.description">{{repo.description}}</td>
-            <td *ngIf="!repo.description">No Description</td>
+            <td class="t-data"><a href="{{repo.repoUrl}}"> <strong>{{repo.name}}</strong></a></td>
+            <td class="t-data" *ngIf="repo.description">{{repo.description}}</td>
+            <td class="t-data" *ngIf="!repo.description">No Description</td>
           </tr>
 
         </table>
