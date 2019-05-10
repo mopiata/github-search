@@ -12,6 +12,7 @@ import { GitsearchServiceService } from "./gitsearch-service.service";
 import { HomeComponent } from './home/home.component';
 import { UserAdapter } from "./user";
 import { DateCountPipe } from './date-count.pipe';
+import { MyHighlightDirective } from './my-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DateCountPipe } from './date-count.pipe';
     FooterComponent,
     HomeComponent,
     DateCountPipe,
+    MyHighlightDirective,
   ],
   imports: [
     BrowserModule,
