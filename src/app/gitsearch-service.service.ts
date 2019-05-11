@@ -112,6 +112,15 @@ export class GitsearchServiceService {
         map((data:any[])=>data.map(item => this.repoAdapter.adapt(item)))
       );
   }
+
+  reposSearch(searchString): Observable<Repo[]>{
+    const url = 'https://api.github.com/search/repositories?q=' + searchString + '&sort=stars&order=desc&access_token=' + environment.accessKey;
+
+    return this.http.get(url)
+      .pipe(
+        map((data: any[]) => data.items.map(item => this.repoAdapter.adapt(item)))
+      );
+  }
 }
   // this.repos = response.map((res) => {
   //   this.repo.name = res.name;

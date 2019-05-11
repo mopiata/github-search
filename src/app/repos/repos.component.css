@@ -1,0 +1,19 @@
+.search{
+  margin-bottom: 20px;
+}
+.btn-search{
+  border-radius: 20px;
+}
+.myForm{
+  text-align: center;
+}
+.mysearch{
+  margin-right: 10px;
+  border-radius: 30px;
+  border-color: darkgray;
+  width:80%;
+  margin-left: 5%;
+}
+.searchresults{
+  min-width: 100%;
+}

@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="container search">
+    <form #searchForm='ngForm' class="myForm form-inline" autocomplete="off" (ngSubmit)="submitSearch()">
+      <input required #search="ngModel" id="search" name="search" [(ngModel)]="searchString"
+        class="form-control form-control-lg mysearch" type="search" placeholder="Search Github" aria-label="Search">
+      <button [disabled]="searchForm.form.invalid" class="btn btn-info form-control-lg btn-search"
+        type="submit">Search</button>
+    </form>
+    <hr>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card searchresults" style="width: 18rem;">
+    <h3>Repositories search results</h3>
+    <ul *ngFor="let repo of repos"  class="list-group list-group-flush">
+      <li *ngIf="!repos"><h1>Sorry, there are no results for that repo</h1></li>
+      <li *ngIf="repos" class="list-group-item"> <a href="{{repo.repoUrl}}" target="_blank">{{repo.name}}</a> <span> |{{repo.description}} </span></li>
+      
+    </ul>
+  </div>
+</div>
