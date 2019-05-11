@@ -1,8 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
-
-body{
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+/* body{
   background-image: url("src/assets/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-}
+} */

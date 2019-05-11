@@ -1,18 +1,31 @@
+.search{
+  margin-bottom: 20px;
+}
 .btn-search{
   border-radius: 20px;
 }
-.search form{
+.myForm{
   text-align: center;
-  float:right;
 }
 .mysearch{
   margin-right: 10px;
   border-radius: 30px;
   border-color: darkgray;
+  width:80%;
+  margin-left: 5%;
+}
+.placeholder{
+  background-color: aliceblue;
+  border-radius: 5px;
 }
 .btn-profile{
   margin-left: auto;
   margin-right: auto;
+  border-radius: 20px;
+  color: white;
+}
+.btn-profile a{
+  color: white;
 }
 .repoinfo{
   background-color: azure;

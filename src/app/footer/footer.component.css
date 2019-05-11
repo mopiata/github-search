@@ -1,7 +1,8 @@
 .message{
-  background-color: rgb(204, 216, 31);
+  background-color:#343a40;
   color: white;
   font-size: 2em;
   padding: 20px;
   text-align: center;
+  margin-top: 20px;
 }

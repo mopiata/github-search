@@ -1,7 +1,11 @@
 .jumbotron{
   background-color: black;
   color: white;
+  padding-bottom: 0px;
 }
 .jumbotron h1{
   font-weight: bolder;
+}
+.nav-link{
+  border-right: solid 1px #eeeeee;
 }
