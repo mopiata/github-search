@@ -13,7 +13,7 @@ export class SearchFormComponent implements OnInit {
 
   @ViewChild('searchForm') formValues;
   
-  searchString:string = "";
+  searchString:string="";
 
   user:User;
   repos:Repo[];
@@ -24,9 +24,17 @@ export class SearchFormComponent implements OnInit {
     
   }
 
-  submitSearch() {
-    this.gitSearch.userRequest(this.searchString.trim());
-    this.user=this.gitSearch.user;
+  getUserRepos(user: string) {
+    this.gitSearch.userRepos(user)
+      .subscribe(data => this.repos = data);
+  }
+
+  submitSearch(searchItem) {
+    searchItem=this.searchString;
+    this.getUserRepos(searchItem);
+    this.gitSearch.userRequest(searchItem);
+    this.user = this.gitSearch.user;
+
     console.log(this.user);
     this.formValues.resetForm();
   }

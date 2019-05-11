@@ -2,7 +2,7 @@ import { Adapter } from "./adapter";
 import { Injectable } from "@angular/core";
 
 export class User {
-  constructor(public username: string, public profPic: string, 
+  constructor(public name:string,public username: string, public profPic: string, 
     public githubProfileUrl:string, public repositoriesUrl:string, 
     public noOfRepos:number, public joinDate:Date, public lastActiveDate:Date){
   }
@@ -11,6 +11,7 @@ export class User {
 export class UserAdapter implements Adapter<User>{
   adapt(item: any): User{
     return new User(
+      item.name,
       item.login,
       item.avatar_url,
       item.html_url,

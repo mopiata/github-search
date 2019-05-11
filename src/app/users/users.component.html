@@ -1,30 +1,19 @@
 <div class="row">
-  <div class="container search">
-    <form #searchForm='ngForm' class="myForm form-inline" autocomplete="off" (ngSubmit)="submitSearch()">
-      <input required #search="ngModel" id="search" name="search" [(ngModel)]="searchString"
-        class="form-control form-control-lg mysearch" type="search" placeholder="Search Github" aria-label="Search">
-      <button [disabled]="searchForm.form.invalid" class="btn btn-primary form-control-lg btn-search"
-        type="submit">Search</button>
-    </form>
-    <hr>
-  </div>
-</div>
-<div class="row" >
   <div class="container main">
     <div class="row">
       <div class="col-lg-5 col-sm-12 userinfo">
         <div class="card">
           <img class="card-img-top" src="{{ user.profPic }}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title" *ngIf="user.name"> {{user.name}} </h5>
-            <p class="card-title" appMyHighlight>{{user.username}}</p>
+            <h5 class="card-title" appMyHighlight>{{user.username}}</h5>
             <span class="badge badge-success">Member since {{ user.joinDate | date }}</span>
             <span class="badge badge-warning">Last updated profile {{ user.lastActiveDate | date }}</span>
+            
             <br>
             <br>
 
 
-            <a href="{{user.githubProfileUrl}}" class="btn btn-info btn-profile" target="_blank">See Profile</a>
+            <a href="{{user.githubProfileUrl}}" class="btn btn-info btn-profile">See Profile</a>
           </div>
         </div>
       </div>
@@ -36,7 +25,7 @@
             <th class="t-header">Description</th>
           </tr>
           <tr *ngFor="let repo of repos">
-            <td class="t-data"><a href="{{repo.repoUrl}}" target="_blank"> <strong>{{repo.name}}</strong></a></td>
+            <td class="t-data"><a href="{{repo.repoUrl}}"> <strong>{{repo.name}}</strong></a></td>
             <td class="t-data" *ngIf="repo.description">{{repo.description}}</td>
             <td class="t-data" *ngIf="!repo.description">No Description</td>
           </tr>

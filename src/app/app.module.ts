@@ -15,6 +15,7 @@ import { RepoAdapter } from "./repo";
 import { DateCountPipe } from './date-count.pipe';
 import { MyHighlightDirective } from './my-highlight.directive';
 import { RoutingModule } from "./routing/routing.module";
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RoutingModule } from "./routing/routing.module";
     HomeComponent,
     DateCountPipe,
     MyHighlightDirective,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

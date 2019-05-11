@@ -26,12 +26,13 @@ export class GitsearchServiceService {
     private adapter: UserAdapter,
     private repoAdapter: RepoAdapter,
     ) { 
-      this.user=new User("","","","",0,new Date(),new Date());
-      // this.repo = new Repo("", "", "", "");
+      this.user=new User("","","","","",0,new Date(),new Date());
+      this.repos=[];
     }
 
   userRequest(searchString){
       interface ApiResponse{
+        name:string;
         login:string;
         avatar_url: string;
         html_url: string;
@@ -44,13 +45,14 @@ export class GitsearchServiceService {
       let promise=new Promise((resolve,reject)=>{
         this.http.get<ApiResponse>('https://api.github.com/users/'+ searchString +'?access_token=' + environment.accessKey)
           .toPromise().then(response=>{
-            this.user.username=response.login
-            this.user.profPic=response.avatar_url
-            this.user.githubProfileUrl=response.html_url
-            this.user.repositoriesUrl=response.repos_url
-            this.user.noOfRepos=response.public_repos
-            this.user.joinDate=response.created_at
-            this.user.lastActiveDate=response.updated_at
+            this.user.name=response.name;
+            this.user.username=response.login;
+            this.user.profPic=response.avatar_url;
+            this.user.githubProfileUrl=response.html_url;
+            this.user.repositoriesUrl=response.repos_url;
+            this.user.noOfRepos=response.public_repos;
+            this.user.joinDate=response.created_at;
+            this.user.lastActiveDate=response.updated_at;
 
             resolve()
           },
