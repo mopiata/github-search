@@ -1,6 +1,6 @@
 <div class="row">
   <div class="container search">
-    <form #searchForm='ngForm' class="myForm form-inline" autocomplete="off" (ngSubmit)="submitSearch()">
+    <form #searchForm='ngForm' class="myForm form-inline" autocomplete="off" (ngSubmit)="submitSearch(user)">
       <input required #search="ngModel" id="search" name="search" [(ngModel)]="searchString"
         class="form-control form-control-lg mysearch" type="search" placeholder="Search Github" aria-label="Search">
       <button [disabled]="searchForm.form.invalid" class="btn btn-info form-control-lg btn-search"
@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div class="row" >
+<div class="row">
   <div class="container main">
     <div class="row">
       <div class="col-lg-5 col-sm-12 userinfo">
